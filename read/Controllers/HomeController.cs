@@ -24,9 +24,20 @@ namespace read.Controllers
 
         public IActionResult Contact()
         {
+          
             ViewData["Message"] = "Your contact page.";
 
             return View();
+          
+        }
+
+        public IActionResult GetStart()
+        {
+
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+
         }
 
         public IActionResult Privacy()
