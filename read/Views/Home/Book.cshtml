@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Book";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+@* api read for butons and signed text  *@
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=rN51gxxL"></script>
+
+<script>
+    //welcome messge
+    setTimeout(responsiveVoice.speak("Welcome to the Responsive Voice website"), 1500);
+</script>
+<br />
+<script type="text/javascript">
+
+    function playText() {
+        responsiveVoice.speak(document.getElementById("textid").textContent);
+    }
+    function pause() {
+        responsiveVoice.pause();
+    }
+    function resume() {
+        responsiveVoice.resume();
+    }
+    function cancel() {
+        responsiveVoice.cancel();
+    }
+    function readButoon() {
+        responsiveVoice.speak("on focus bbbb")
+    }
+</script>
+Enter your text here: <br />
+
+
+<textarea name="comment" rows="25" cols="150" id="textid"> 
+check if text apper
+</textarea><br />
+
+<button name="play" onclick="playText()" onmouseover="readButoon">play text</button>
+<button name="pause" onclick="pause()">pause</button>
+<button name="resume" onclick="resume()">resume</button>
+<button name="cancel" onclick="cancel()">cancel</button>
+<p>For specefic line plese signe the line you want to be read</p>
+
+
+<h2>Book</h2>
+
