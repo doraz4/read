@@ -35,26 +35,17 @@ To hear the tutorial again press "9".<br />
     function hint() {
         responsiveVoice.speak("Hello You came to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions.by pressing the 1 button to start the text from the beginning, using the 2 button to stop at the point you are at.You can continue reading from the same location using the 3 button.With the 4 button you can finish reading. To hear the tutorial again press 9.")
     }
+    function EnterTextToBox() {
+        document.getElementById("textid").textContent = document.getElementById("textid").value;
+        //document.getElementById("textid").textContent = "history book"
+    }
 
 
 </script>
-
-<textarea name="comment" rows="10" cols="150" id="textid"> 
-The French Revolution (French: Révolution française [ʁevɔlysjɔ̃ fʁɑ̃sɛːz]) was a period of far-reaching social and political upheaval in France and its colonies beginning in 1789. The Revolution overthrew the monarchy, established a republic, catalyzed violent periods of political turmoil, and finally culminated in a dictatorship under Napoleon who brought many of its principles to areas he conquered in Western Europe and beyond. Inspired by liberal and radical ideas, the Revolution made a profound impression on the course of modern history, triggering the global decline of absolute monarchies while replacing them with republics and liberal democracies.[1] Through the Revolutionary Wars, it unleashed a wave of global conflicts that extended from the Caribbean to the Middle East. Historians widely regard the Revolution as one of the most important events in human history.[2][3][4]
-
-The causes of the French Revolution are complex and are still debated among historians. Following the Seven Years' War and the American Revolutionary War,[5] the French government was deeply in debt. It attempted to restore its financial status through unpopular taxation schemes, which were heavily regressive. Leading up to the Revolution, years of bad harvests worsened by deregulation of the grain industry and environmental problems also inflamed popular resentment of the privileges enjoyed by the aristocracy and the Catholic clergy of the established church. Some historians hold something similar to what Thomas Jefferson proclaimed: that France had "been awakened by our [American] Revolution."[6] Demands for change were formulated in terms of Enlightenment ideals and contributed to the convocation of the Estates General in May 1789. During the first year of the Revolution, members of the Third Estate (commoners) took control, the Bastille was attacked in July, the Declaration of the Rights of Man and of the Citizen was passed in August, and the Women's March on Versailles forced the royal court back to Paris in October. A central event of the first stage, in August 1789, was the abolition of feudalism and the old rules and privileges left over from the Ancien Régime.
-
-The next few years featured political struggles between various liberal assemblies and right-wing supporters of the monarchy intent on thwarting major reforms. The Republic was proclaimed in September 1792 after the French victory at Valmy. In a momentous event that led to international condemnation, Louis XVI was executed in January 1793.
-
-External threats closely shaped the course of the Revolution. The Revolutionary Wars beginning in 1792 ultimately featured French victories that facilitated the conquest of the Italian Peninsula, the Low Countries and most territories west of the Rhine – achievements that had eluded previous French governments for centuries. Internally, popular agitation radicalised the Revolution significantly, culminating in the rise of Maximilien Robespierre and the Jacobins. The dictatorship imposed by the Committee of Public Safety during the Reign of Terror, from 1793 until 1794, established price controls on food and other items, abolished slavery in French colonies abroad, de-established the Catholic church (dechristianised society) and created a secular Republican calendar, religious leaders were expelled, and the borders of the new republic were secured from its enemies.
-
-After the Thermidorian Reaction, an executive council known as the Directory assumed control of the French state in 1795. They suspended elections, repudiated debts (creating financial instability in the process), persecuted the Catholic clergy, and made significant military conquests abroad.[7] Dogged by charges of corruption, the Directory collapsed in a coup led by Napoleon Bonaparte in 1799. Napoleon, who became the hero of the Revolution through his popular military campaigns, established the Consulate and later the First Empire, setting the stage for a wider array of global conflicts in the Napoleonic Wars.
-
-The modern era has unfolded in the shadow of the French Revolution. Almost all future revolutionary movements looked back to the Revolution as their predecessor.[8] Its central phrases and cultural symbols, such as La Marseillaise and Liberté, fraternité, égalité, ou la mort, became the clarion call for other major upheavals in modern history, including the Russian Revolution over a century later.[9]
-
-The values and institutions of the Revolution dominate French politics to this day. The Revolution resulted in the suppression of the feudal system, emancipation of the individual, a greater division of landed property, abolition of the privileges of noble birth, and nominal establishment of equality among men. The French Revolution differed from other revolutions in being not only national, for it intended to benefit all humanity.[10]
-
-Globally, the Revolution accelerated the rise of republics and democracies. It became the focal point for the development of most modern political ideologies, leading to the spread of liberalism, radicalism, nationalism, and secularism, among many others. The Revolution also witnessed the birth of total war by organising the resources of France and the lives of its citizens towards the objective of national defense.[11] Some of its central documents, such as the Declaration of the Rights of Man and of the Citizen, continued to inspire movements for abolitionism and universal suffrage in the next century
+<button type="button" onclick="EnterTextToBox()">Enter Text</button>
+<br />
+<textarea name="comment" rows="10" cols="150" id="textid">
+Please chose a book to start reading.
 </textarea><br />
 <button name="Start" onclick="playText()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
 <button name="Pause" onclick="pause()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
@@ -82,6 +73,36 @@ Globally, the Revolution accelerated the rise of republics and democracies. It b
 </head>
 
 <h2>Book</h2>
+
+
+    <script>
+        function myFunction() {
+            if (document.getElementById("mySelect").value === "history") {
+                //document.getElementById("mySelect").value
+                document.getElementById("textid").value = "history book";
+                document.getElementById("textid").textContent = "history book";
+            } else if (document.getElementById("mySelect").value === "geography"){
+                document.getElementById("textid").value = "geography book";
+                document.getElementById("textid").textContent = "geography book";
+
+            } else if (document.getElementById("mySelect").value === "sciences") {
+                document.getElementById("textid").value = "sciences book";
+                document.getElementById("textid").textContent = "sciences book";
+
+            }
+        }   
+    </script>
+
+
+    <form>
+        <label for="text"><font size="3">Chose book to display: </font></label><br />
+        <select name="text" id="mySelect"  >
+            <option value="history" >History</option>
+            <option value="geography">Geography</option>
+            <option value="sciences">Sciences</option>
+        </select>
+        <button type="button" onclick="myFunction()">Chose</button>
+    </form>
 
 
 
