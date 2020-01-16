@@ -3,7 +3,7 @@
     ViewData["Title"] = "Book";
 }
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<!--<h3>@ViewData["Message"]</h3>-->
 
 @* api read for butons and signed text  *@
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=rN51gxxL"></script>
@@ -27,12 +27,20 @@
     function cancel() {
         responsiveVoice.cancel();
     }
-    function readButoon() {
-        responsiveVoice.speak("on focus bbbb")
+    function play_readButoon() {
+        responsiveVoice.speak("Play")
     }
+    function start_readButoon() {
+        responsiveVoice.speak("Start")
+    }
+    function pause_readButoon() {
+        responsiveVoice.speak("Pause")
+    }
+    function stop_readButoon() {
+        responsiveVoice.speak("Stop")
+    }
+    
 </script>
-Enter your text here: <br />
-
 
 <textarea name="comment" rows="10" cols="150" id="textid"> 
 The French Revolution (French: Révolution française [ʁevɔlysjɔ̃ fʁɑ̃sɛːz]) was a period of far-reaching social and political upheaval in France and its colonies beginning in 1789. The Revolution overthrew the monarchy, established a republic, catalyzed violent periods of political turmoil, and finally culminated in a dictatorship under Napoleon who brought many of its principles to areas he conquered in Western Europe and beyond. Inspired by liberal and radical ideas, the Revolution made a profound impression on the course of modern history, triggering the global decline of absolute monarchies while replacing them with republics and liberal democracies.[1] Through the Revolutionary Wars, it unleashed a wave of global conflicts that extended from the Caribbean to the Middle East. Historians widely regard the Revolution as one of the most important events in human history.[2][3][4]
@@ -51,14 +59,11 @@ The values and institutions of the Revolution dominate French politics to this d
 
 Globally, the Revolution accelerated the rise of republics and democracies. It became the focal point for the development of most modern political ideologies, leading to the spread of liberalism, radicalism, nationalism, and secularism, among many others. The Revolution also witnessed the birth of total war by organising the resources of France and the lives of its citizens towards the objective of national defense.[11] Some of its central documents, such as the Declaration of the Rights of Man and of the Citizen, continued to inspire movements for abolitionism and universal suffrage in the next century
 </textarea><br />
-           
-               <button name="play" onclick="playText()" onmouseover="readButoon" style="height:100px;width:265px"><font size="5"><b>play</b></font></button>
-               <button name="pause" onclick="pause()" style="height:100px;width:265px"><font size="5"><b>pause</b></font></button>
-               <button name="resume" onclick="resume()" style="height:100px;width:265px"><font size="5"><b>resume</b></font></button>
-               <button name="cancel" onclick="cancel()" style=" height:100px;width:265px"><font size="5"><b>cancel</b></font></button>
-           
-
-<p>For specefic line plese signe the line you want to be read</p>
+               <button name="Start" onclick="playText()" onmouseover="start_readButoon()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
+               <button name="Pause" onclick="pause()" onmouseover="pause_readButoon()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
+               <button name="Play" onclick="resume()" onmouseover="play_readButoon()" style="height:100px;width:265px"><font size="5"><b>Play</b></font></button>
+               <button name="Stop" onclick="cancel()" onmouseover="stop_readButoon()" style=" height:100px;width:265px"><font size="5"><b>Stop</b></font></button>
+                        
 
 
 <h2>Book</h2>
