@@ -4,13 +4,18 @@
 }
 <h2>@ViewData["Title"]</h2>
 <!--<h3>@ViewData["Message"]</h3>-->
-
+<br />
+Hello You came to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions.
+by pressing the "1" button to start the text from the beginning, using the "2" button to stop at the point you are at. You can continue reading from the same location using the "3" button.
+With the "4" button you can finish reading.
+To hear the tutorial again press "9".<br />
+<br />
 @* api read for butons and signed text  *@
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=rN51gxxL"></script>
 
 <script>
     //welcome messge
-    setTimeout(responsiveVoice.speak("Welcome to the Responsive Voice website"), 1500);
+    setTimeout(responsiveVoice.speak("Hello You came to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions.by pressing the 1 button to start the text from the beginning, using the 2 button to stop at the point you are at.You can continue reading from the same location using the 3 button.With the 4 button you can finish reading. To hear the tutorial again press 9."), 1500);
 </script>
 <br />
 <script type="text/javascript">
@@ -27,19 +32,11 @@
     function cancel() {
         responsiveVoice.cancel();
     }
-    function play_readButoon() {
-        responsiveVoice.speak("Play")
+    function hint() {
+        responsiveVoice.speak("Hello You came to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions.by pressing the 1 button to start the text from the beginning, using the 2 button to stop at the point you are at.You can continue reading from the same location using the 3 button.With the 4 button you can finish reading. To hear the tutorial again press 9.")
     }
-    function start_readButoon() {
-        responsiveVoice.speak("Start")
-    }
-    function pause_readButoon() {
-        responsiveVoice.speak("Pause")
-    }
-    function stop_readButoon() {
-        responsiveVoice.speak("Stop")
-    }
-    
+
+
 </script>
 
 <textarea name="comment" rows="10" cols="150" id="textid"> 
@@ -59,12 +56,36 @@ The values and institutions of the Revolution dominate French politics to this d
 
 Globally, the Revolution accelerated the rise of republics and democracies. It became the focal point for the development of most modern political ideologies, leading to the spread of liberalism, radicalism, nationalism, and secularism, among many others. The Revolution also witnessed the birth of total war by organising the resources of France and the lives of its citizens towards the objective of national defense.[11] Some of its central documents, such as the Declaration of the Rights of Man and of the Citizen, continued to inspire movements for abolitionism and universal suffrage in the next century
 </textarea><br />
-               <button name="Start" onclick="playText()" onmouseover="start_readButoon()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
-               <button name="Pause" onclick="pause()" onmouseover="pause_readButoon()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
-               <button name="Play" onclick="resume()" onmouseover="play_readButoon()" style="height:100px;width:265px"><font size="5"><b>Play</b></font></button>
-               <button name="Stop" onclick="cancel()" onmouseover="stop_readButoon()" style=" height:100px;width:265px"><font size="5"><b>Stop</b></font></button>
-                        
-
+<button name="Start" onclick="playText()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
+<button name="Pause" onclick="pause()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
+<button name="Play" onclick="resume()" style="height:100px;width:265px"><font size="5"><b>Play</b></font></button>
+<button name="Stop" onclick="cancel()" style=" height:100px;width:265px"><font size="5"><b>Stop</b></font></button>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        Mousetrap.bind('1', function (e) {
+            playText();
+        });
+        Mousetrap.bind('2', function (e) {
+            pause();
+        });
+        Mousetrap.bind('3', function (e) {
+            resume();
+        });
+        Mousetrap.bind('4', function (e) {
+            cancel();
+        });
+        Mousetrap.bind('9', function (e) {
+            hint();
+        });
+    </script>
+</head>
 
 <h2>Book</h2>
+
+
+
+
+
+
 
