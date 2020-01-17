@@ -45,13 +45,16 @@ namespace read
                            .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<readContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("readContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env,ApplicationDbContext context,
             RoleManager<ApplicationRole> roleManager,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,readContext _context)
         {
             if (env.IsDevelopment())
             {
@@ -69,7 +72,7 @@ namespace read
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -77,6 +80,7 @@ namespace read
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
             BuildInMangers.Initialize(context, userManager, roleManager).Wait();
+            DBseeder.SeedDB(_context);
         }
     }
 }
