@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using read.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -25,7 +26,7 @@ namespace read.Controllers
             return View();
           
         }
-        
+        [Authorize]
         public IActionResult EditText()
         {
 

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using read.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace read.Controllers
 {
@@ -19,6 +21,7 @@ namespace read.Controllers
         }
 
         // GET: RBooks
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.AllBooks.ToListAsync());
@@ -53,6 +56,8 @@ namespace read.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Admin")]
+
         public async Task<IActionResult> Create([Bind("Id,Name,text")] RBooks rBooks)
         {
             if (ModelState.IsValid)
@@ -65,6 +70,8 @@ namespace read.Controllers
         }
 
         // GET: RBooks/Edit/5
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +92,8 @@ namespace read.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,text")] RBooks rBooks)
         {
             if (id != rBooks.Id)
@@ -116,6 +125,8 @@ namespace read.Controllers
         }
 
         // GET: RBooks/Delete/5
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
