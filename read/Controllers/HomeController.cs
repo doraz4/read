@@ -18,17 +18,6 @@ namespace read.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            
-            return View();
-        }
-       
-        public IActionResult Book()
-        {
-            return View();
-        }
-
         public IActionResult Contact()
         {
          
@@ -37,20 +26,6 @@ namespace read.Controllers
           
         }
         
-        public IActionResult StartRead()
-        {
-
-            
-            return View();
-
-        }
-        public IActionResult ExistText()
-        {
-
-
-            return View();
-
-        }
         public IActionResult EditText()
         {
 
@@ -58,6 +33,7 @@ namespace read.Controllers
             return View();
 
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
