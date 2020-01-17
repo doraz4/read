@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using read.Models;
+using Microsoft.AspNetCore.Identity;
+
+
 
 namespace read.Controllers
 {
@@ -33,7 +36,28 @@ namespace read.Controllers
             return View();
           
         }
+        
+        public IActionResult StartRead()
+        {
 
+            
+            return View();
+
+        }
+        public IActionResult ExistText()
+        {
+
+
+            return View();
+
+        }
+        public IActionResult EditText()
+        {
+
+
+            return View();
+
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "EditText";
+}
+<h2>EditText</h2>
+<b>Insert your own text by the folowing:</b><br />
+    -write your text in the textbox<br />
+    -prese the 'enter text button'<br />
+    -start reading voice 
+<br />
+
+@* api read for butons and signed text  *@
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=rN51gxxL"></script>
+
+@*<script>
+        //welcome messge
+        setTimeout(responsiveVoice.speak("Welcome to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions. by pressing the 1 button to start the text from the beginning, by pressing the '2' button to pause at the point you are at .by pressing the '3' button You can continue reading from the same location using.by pressing the '4' button you can finish reading. To hear the tutorial again press 9."), 1500);
+    </script>*@
+<br />
+<script type="text/javascript">
+
+    function playText() {
+        responsiveVoice.speak(document.getElementById("textid").textContent);
+    }
+    function pause() {
+        responsiveVoice.pause();
+    }
+    function resume() {
+        responsiveVoice.resume();
+    }
+    function cancel() {
+        responsiveVoice.cancel();
+    }
+    function hint() {
+        responsiveVoice.speak("Welcome to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions. by pressing the 1 button to start the text from the beginning, by pressing the '2' button to pause at the point you are at .by pressing the '3' button You can continue reading from the same location using.by pressing the '4' button you can finish reading. To hear the tutorial again press 9.")
+    }
+    function EnterTextToBox() {
+        document.getElementById("textid").textContent = document.getElementById("textid").value;
+        responsiveVoice.speak("Text is ready to use. press 9 to hear Operating Instructions");
+    }
+
+
+</script>
+<button type="button" onclick="EnterTextToBox()">Enter Text</button>
+<br />
+<textarea name="comment" rows="10" cols="150" id="textid">
+
+</textarea><br />
+<button name="Start" onclick="playText()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
+<button name="Pause" onclick="pause()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
+<button name="Play" onclick="resume()" style="height:100px;width:265px"><font size="5"><b>Play</b></font></button>
+<button name="Stop" onclick="cancel()" style=" height:100px;width:265px"><font size="5"><b>Stop</b></font></button>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        Mousetrap.bind('1', function (e) {
+            playText();
+        });
+        Mousetrap.bind('2', function (e) {
+            pause();
+        });
+        Mousetrap.bind('3', function (e) {
+            resume();
+        });
+        Mousetrap.bind('4', function (e) {
+            cancel();
+        });
+        Mousetrap.bind('9', function (e) {
+            hint();
+        });
+    </script>
+</head>
+
+<p>
+    <b>Welcome to Accessible Reader's Web site.</b><br /> In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions:<br />
+    by pressing the "1" button to start the text from the beginning.<br /> by pressing the "2" button to pause at the point you are at.<br /> by pressing the "3" button You can continue reading from the same location using.<br />
+    by pressing the "4" button you can finish reading.<br />
+    To hear the tutorial again press "9".<br /><br />
+
+</p>
+
+
+
+
+

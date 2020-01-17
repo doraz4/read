@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "ExistText";
+}
+
+<h2>ExistText</h2>
+<b>Insert exist text by the folowing:</b><br />
+    -chose subject from the drop down list.<br />
+    -prees the 'chose' button.<br />
+    -start reading voice<br />
+
+@* api read for butons and signed text  *@
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=rN51gxxL"></script>
+
+@*<script>
+        //welcome messge
+        setTimeout(responsiveVoice.speak("Welcome to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions. by pressing the 1 button to start the text from the beginning, by pressing the '2' button to pause at the point you are at .by pressing the '3' button You can continue reading from the same location using.by pressing the '4' button you can finish reading. To hear the tutorial again press 9."), 1500);
+    </script>*@
+<br />
+<script type="text/javascript">
+
+    function playText() {
+        responsiveVoice.speak(document.getElementById("textid").textContent);
+    }
+    function pause() {
+        responsiveVoice.pause();
+    }
+    function resume() {
+        responsiveVoice.resume();
+    }
+    function cancel() {
+        responsiveVoice.cancel();
+    }
+    function hint() {
+        responsiveVoice.speak("Welcome to Accessible Reader's Web site. In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions. by pressing the 1 button to start the text from the beginning, by pressing the '2' button to pause at the point you are at .by pressing the '3' button You can continue reading from the same location using.by pressing the '4' button you can finish reading. To hear the tutorial again press 9.")
+    }
+    function EnterTextToBox() {
+        document.getElementById("textid").textContent = document.getElementById("textid").value;
+        responsiveVoice.speak("Text is ready to use. prees 9 to hear Operating Instructions");
+    }
+
+
+</script>
+
+<form>
+    <label for="text"><font size="3">Chose book to display: </font></label><br />
+    <select name="text" id="mySelect">
+        <option value="history">History</option>
+        <option value="geography">Geography</option>
+        <option value="sciences">Sciences</option>
+    </select>
+    <button type="button" onclick="myFunction()">Chose</button>
+</form>
+
+<br />
+<textarea name="comment" rows="10" cols="150" id="textid">
+
+</textarea><br />
+<button name="Start" onclick="playText()" style="height:100px;width:265px"><font size="5"><b>Start</b></font></button>
+<button name="Pause" onclick="pause()" style="height:100px;width:265px"><font size="5"><b>Pause</b></font></button>
+<button name="Play" onclick="resume()" style="height:100px;width:265px"><font size="5"><b>Play</b></font></button>
+<button name="Stop" onclick="cancel()" style=" height:100px;width:265px"><font size="5"><b>Stop</b></font></button>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script>
+        Mousetrap.bind('1', function (e) {
+            playText();
+        });
+        Mousetrap.bind('2', function (e) {
+            pause();
+        });
+        Mousetrap.bind('3', function (e) {
+            resume();
+        });
+        Mousetrap.bind('4', function (e) {
+            cancel();
+        });
+        Mousetrap.bind('9', function (e) {
+            hint();
+        });
+    </script>
+</head>
+
+<p>
+    <b>Welcome to Accessible Reader's Web site.</b><br /> In order for you to hear the text in an accessible way, there are four buttons through which you can perform the following actions:<br />
+    by pressing the "1" button to start the text from the beginning.<br /> by pressing the "2" button to pause at the point you are at.<br /> by pressing the "3" button You can continue reading from the same location using.<br />
+    by pressing the "4" button you can finish reading.<br />
+    To hear the tutorial again press "9".<br /><br />
+
+</p>
+
+
+
+
+
+<script>
+    function myFunction() {
+        if (document.getElementById("mySelect").value === "history") {
+            //document.getElementById("mySelect").value
+            document.getElementById("textid").value = "history book";
+            document.getElementById("textid").textContent = "history book";
+        } else if (document.getElementById("mySelect").value === "geography") {
+            document.getElementById("textid").value = "geography book";
+            document.getElementById("textid").textContent = "geography book";
+
+        } else if (document.getElementById("mySelect").value === "sciences") {
+            document.getElementById("textid").value = "sciences book";
+            document.getElementById("textid").textContent = "sciences book";
+
+        }
+        responsiveVoice.speak("Text is ready to use. press 9 to hear Operating Instructions");
+    }
+</script>
+
+
+
